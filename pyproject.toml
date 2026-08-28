@@ -1,18 +1,41 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "internet2agent"
 version = "0.1.0"
-description = "Python interface and Claude-powered agent for the Internet2 Periscope Looking Glass MCP server"
+description = "Python client and LLM agent for the Internet2 Periscope Looking Glass MCP server"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "AstralDeep", email = "armstrongsam25@gmail.com" }]
 requires-python = ">=3.10"
+keywords = ["internet2", "mcp", "looking-glass", "network", "bgp", "traceroute", "llm", "agent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Telecommunications Industry",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Networking :: Monitoring",
+]
 dependencies = [
     "openai>=1.50",
     "mcp>=2.0",
     "python-dotenv>=1.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/AstralDeep/internet2agent"
+Repository = "https://github.com/AstralDeep/internet2agent"
+Issues = "https://github.com/AstralDeep/internet2agent/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]

@@ -109,6 +109,21 @@ pytest              # unit tests (offline, mocked)
 pytest -m network   # live smoke tests against the real Periscope server
 ```
 
+## Releasing to PyPI
+
+Publishing runs through GitHub Actions with [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/)
+(no API tokens stored anywhere). One-time setup:
+
+1. On [pypi.org](https://pypi.org) -> your account -> Publishing -> "Add a new
+   pending publisher": project `internet2agent`, owner `AstralDeep`, repository
+   `internet2agent`, workflow `publish.yml`, environment `pypi`.
+2. On GitHub -> repo Settings -> Environments -> create an environment named `pypi`.
+
+Then, for each release: bump `version` in `pyproject.toml`, push, and publish a
+GitHub release with a `vX.Y.Z` tag - the workflow builds and uploads.
+
+Manual alternative: `python -m build && twine upload dist/*` with a PyPI API token.
+
 ## Notes
 
 - The agent requires an endpoint that supports OpenAI-style **function/tool
