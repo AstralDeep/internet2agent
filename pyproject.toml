@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "internet2agent"
+version = "0.1.0"
+description = "Python interface and Claude-powered agent for the Internet2 Periscope Looking Glass MCP server"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.50",
+    "mcp>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+internet2agent = "internet2agent.cli:main"
+i2a = "internet2agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "network: tests that hit the live Periscope MCP server (run with: pytest -m network)",
+]
+addopts = "-m 'not network'"
+testpaths = ["tests"]
